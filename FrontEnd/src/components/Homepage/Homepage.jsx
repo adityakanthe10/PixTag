@@ -1,14 +1,15 @@
-import React from 'react';
-import Navbar from '../Navbar/Navbar';
+// import React from 'react';
+
 import './HomePage.css'; // Add styling here
 
 const HomePage = () => {
   return (
     <div className="homepage">
-      <Navbar />
+      
       <div className="content">
-        <h1>Welcome to My Image Tagging App</h1>
-        <p>Your one-stop solution for tagging and searching images.</p>
+        <h1>Welcome to PixTag</h1>
+        <p>Discover and manage your images with ease using PixTag, your ultimate image tagging and management tool. </p>
+        <p>Whether you're a photographer, designer, or just an avid collector of images, PixTag simplifies the way you interact with your visual content.</p>
       </div>
     </div>
   );

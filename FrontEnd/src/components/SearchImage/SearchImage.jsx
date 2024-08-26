@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import Navbar from '../Navbar/Navbar';
+import  { useState } from 'react';
 import axios from 'axios';
-import './SearchForm.css'; 
+import './SearchImage.css'; 
 
 const SearchImage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,7 +18,6 @@ const SearchImage = () => {
 
   return (
     <div className="search-image-page">
-      <Navbar />
       <div className="search-bar">
         <input
           type="text"

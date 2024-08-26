@@ -2,8 +2,70 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid;
+  margin: 10px;
 }
 
+.nav-links{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin: ;
+  text-decoration: none;
+}
+
+.nav-links a{
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav-links li{
+  list-style: none;
+}
 .navbar .logo{
   width: 150px;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* Hide the nav links by default */
+  }
+
+  .nav-links.show {
+    display: flex; /* Show nav links when toggled */
+  }
+
+  .nav-links a {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #ddd; /* Add border for better separation */
+  }
+
+  .navbar .logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none; /* Hide the hamburger menu on larger screens */
+  }
 }

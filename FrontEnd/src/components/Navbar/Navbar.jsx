@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // Create this file for styling
 import {assets} from "../../assets/assets"
+import './Navbar.css'; 
 
 const Navbar = () => {
   return (
@@ -8,11 +8,11 @@ const Navbar = () => {
       <div className="logo">
         <Link to="/"><img src={assets.logo} alt="" className="logo"/></Link>
         </div>
-      <div className="nav-links">
-        <Link to="/search">Search Image</Link>
-        <Link to="/upload">Upload Image</Link>
-        <Link to="/about">About</Link>
-          </div>
+      <ul className="nav-links">
+        <li><Link to="/search">Search Image</Link></li>
+        <li><Link to="/upload">Upload Image</Link></li>
+        <li><Link to="/about">About</Link></li>
+          </ul>
       </div>
  
   );

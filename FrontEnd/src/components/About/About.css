@@ -1,0 +1,9 @@
+.about-content h1{
+    padding: 10px;
+    margin: 10px;
+}
+.about-content p{
+    padding: 10px;
+    margin: 10px;
+    text-align:justify;
+}

@@ -10,7 +10,7 @@ const uploadImage = async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
-    console.log(file);
+    console.log(req.file);
     // Upload image to Cloudinary
     const uploadStream = cloudinary.uploader.upload_stream(
       { resource_type: "auto" }, // Automatically detect the resource type
