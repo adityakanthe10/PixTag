@@ -5,11 +5,14 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 
+## Demo
+- You can check out a demo of the project [here](https://drive.google.com/file/d/19GGay5y3D5NVHMyMUhGAKqBl-f9p6xL9/view?usp=sharing).
 
 ## Overview
 
