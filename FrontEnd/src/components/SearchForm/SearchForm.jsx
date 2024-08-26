@@ -1,50 +1,40 @@
-import  { useState } from 'react';
+import React, { useState } from 'react';
+import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
+import './SearchForm.css'; 
 
-const SearchForm = () => {
-  const [tag, setTag] = useState('');
+const SearchImage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [images, setImages] = useState([]);
-  const [error, setError] = useState(null);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    setError(null);
-
+  const handleSearch = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/search', {
-        params: { tag },
-      });
-
+      const response = await axios.get(`http://localhost:5000/api/images?tag=${searchTerm}`);
       setImages(response.data);
     } catch (error) {
-      console.error('Error searching images:', error);
-      setError('Failed to retrieve images. Please try again.');
+      console.error('Error fetching images:', error);
+      setImages([]);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSearch}>
-        <div>
-          <input
-            type="text"
-            value={tag}
-            onChange={(e) => setTag(e.target.value)}
-            placeholder="Search by tag"
-            required
-          />
-        </div>
-        <div>
-          <button type="submit">Search</button>
-        </div>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div>
+    <div className="search-image-page">
+      <Navbar />
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search for images..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+      <div className="image-gallery">
         {images.length > 0 ? (
           images.map((image) => (
-            <div key={image._id}>
-              <img src={image.url} alt="Search result" style={{ maxWidth: '200px', maxHeight: '200px' }} />
-              <p>Tags: {image.tags.join(', ')}</p>
+            <div key={image._id} className="image-item">
+              <img src={image.url} alt={image.tags.join(', ')} />
+              <p>{image.tags.join(', ')}</p>
             </div>
           ))
         ) : (
@@ -55,4 +45,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default SearchImage;

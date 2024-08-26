@@ -1,21 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './HomePage';
-import UploadForm from './UploadForm';
-import About from './About'; // Create an About component as needed
+import Navbar from '../Navbar/Navbar';
+import './About.css'; // Add styling here
 
-const App = () => {
+const About = () => {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/upload" element={<UploadForm />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+    <div className="about-page">
+      <Navbar />
+      <div className="about-content">
+        <h1>About Our App</h1>
+        <p>This app allows you to upload, tag, and search for images seamlessly.</p>
+        <p>Designed with the latest technologies to provide the best user experience.</p>
       </div>
-    </Router>
+    </div>
   );
 };
 
-export default App;
+export default About;

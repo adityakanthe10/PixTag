@@ -1,14 +1,23 @@
-// import React from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/Homepage/Homepage';
 import UploadForm from './components/UploadForm/UploadForm';
-import SearchForm from './components/SearchForm/SearchForm';
+import About from './components/About/About'; 
+import SearchImage from './components/SearchForm/SearchForm'; 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <UploadForm />
-      <SearchForm />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Search" element={<SearchImage />} />
+          <Route path="/upload" element={<UploadForm />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

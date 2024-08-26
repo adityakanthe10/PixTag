@@ -1,35 +1,14 @@
-import React, { useState } from 'react';
-import Navbar from './Navbar';
-import axios from 'axios';
-import './HomePage.css'; // Create this file for styling
+import React from 'react';
+import Navbar from '../Navbar/Navbar';
+import './HomePage.css'; // Add styling here
 
 const HomePage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [images, setImages] = useState([]);
-
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/images?tag=${searchTerm}`);
-      setImages(response.data.images);
-    } catch (error) {
-      console.error('Error fetching images:', error);
-    }
-  };
-
   return (
     <div className="homepage">
-      <Navbar onSearch={handleSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <div className="image-gallery">
-        {images.length > 0 ? (
-          images.map((image) => (
-            <div key={image._id} className="image-item">
-              <img src={image.url} alt={image.tags.join(', ')} />
-              <p>{image.tags.join(', ')}</p>
-            </div>
-          ))
-        ) : (
-          <p>No images found</p>
-        )}
+      <Navbar />
+      <div className="content">
+        <h1>Welcome to My Image Tagging App</h1>
+        <p>Your one-stop solution for tagging and searching images.</p>
       </div>
     </div>
   );

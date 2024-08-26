@@ -3,13 +3,14 @@ const Image = require("../models/imageModel"); // Import your Image model if you
 
 // /Upload the image into the database
 
+console.log();
 const uploadImage = async (req, res) => {
   try {
     // Check if a file is present in the request
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
-
+    console.log(file);
     // Upload image to Cloudinary
     const uploadStream = cloudinary.uploader.upload_stream(
       { resource_type: "auto" }, // Automatically detect the resource type
@@ -49,12 +50,10 @@ const uploadImage = async (req, res) => {
 // Search via tags
 const searchImages = async (req, res) => {
   try {
-    const { tag } = req.query;
+    const tag = req.query.tag;
 
     if (!tag) {
-      return res
-        .status(400)
-        .json({ message: "Tag query parameter is required" });
+      return res.status(400).json({ message: "Tag is required" });
     }
 
     // Find images with the specified tag
