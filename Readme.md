@@ -1,6 +1,6 @@
 # PixTag - Image Tagging and Search Application
 
-![PixTag Logo](./path/to/your/logo.png)
+![PixTag Logo](./FrontEnd/src/assets/logo.png)
 
 ## Table of Contents
 
